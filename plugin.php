@@ -30,13 +30,6 @@ $('#dus-resistance').append('<tr><td rowspan="2">You version of the DUS-RES plug
 	die();
 }
 
-
-
-$EAST = 6685066;
-$WEST = 6939712;
-$SOUTH = 51122920;
-$NORTH = 51353345;
-
 if ($lat > $NORTH || $lat < $SOUTH || $lng < $EAST || $lng > $WEST) {
 ?>
 $('#dus-resistance').append('<tr><td rowspan="2">Portal out of our scope.</td></tr>');

@@ -6,6 +6,10 @@ $dbname = "";
 
 $MAIN_URL = "http://www.example.com.de/ingress/";
 $CURRENT_VERSION = "0.0.5";
+$EAST = 6685066;
+$WEST = 6939712;
+$SOUTH = 51122920;
+$NORTH = 51353345;
 
 $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname); 
 

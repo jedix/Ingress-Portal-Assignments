@@ -10,7 +10,7 @@ class Portal {
 	public discovered = '';
 	public updated = '';
 
-	public function __construct($id, $lat, $lng, $name, $owner, $owner_since, $faction, $discovered, $updated) {
+	public function __construct($id, $lat, $lng, $name, $owner, $owner_since, $faction, $discovered='', $updated='') {
 		$this->id = $id;
 		$this->lat = $lat;
 		$this->lng = $lng;

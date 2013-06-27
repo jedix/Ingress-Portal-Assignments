@@ -127,6 +127,9 @@ class Portal {
 	public function assign_player($player) {
 		global $mysqli;
 		$success = FALSE;
+		if (empty($this->id)) {	
+			return FALSE;
+		}
 		$sql = "INSERT INTO ingress_portal_watch (portal, player, since) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE since = ?";
 		if ($stmt = $mysqli->prepare($sql)) {
 			$stmt->bind_param('isss', $this->id, $player, date("Y-m-d H:i"), date("Y-m-d H:i"));
@@ -143,6 +146,9 @@ class Portal {
 	public function unassign_player($player) {
 		global $mysqli;
 		$success = FALSE;
+		if (empty($this->id)) {	
+			return FALSE;
+		}
 		$sql = "DELETE FROM ingress_portal_watch WHERE portal = ? AND player = ?";
 		if ($stmt = $mysqli->prepare($sql)) {
 			$stmt->bind_param('ii', $this->id, $player);

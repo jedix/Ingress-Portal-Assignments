@@ -16,6 +16,7 @@ foreach ($playerlist->items as $myplayer) {
 <tr>
 <th>Portal</th>
 <th>Options</th>
+<th># of players assigned</th>
 </tr>
 <?php
 if (empty($player)) {
@@ -29,6 +30,7 @@ foreach ($portallist->items as $portal) {
  <td class="owner-<?php echo $portal->faction; ?>"><?php echo $portal->name; ?></td>
  <td><a class="intel" href="http://www.ingress.com/intel?pll=<?php echo ($portal->lat / 1000000).','.($portal->lng / 1000000); ?>&z=17" target="_blank" title="Show on Intel map: <?php echo ($portal->lng / 1000000)." | ".($portal->lat / 1000000) ; ?>"></a>
 <a class="info" title="Show portal information" href="?lat=<?php echo $portal->lat; ?>&lng=<?php echo $portal->lng; ?>"></a></td>
+<td class="right"><?php echo count($portal->assigned_players); ?></td>
 </tr>
 <?php
 }

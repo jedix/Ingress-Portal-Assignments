@@ -12,6 +12,9 @@ th,td {
 .list td, .list th {
 	border: 1px solid #99FBEA;
 }
+td.right {
+	text-align:right;
+}
 a {
 	color: #59FBEA;
 }

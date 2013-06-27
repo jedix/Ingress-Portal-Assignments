@@ -1,0 +1,40 @@
+body {
+	background: #000;
+	color: #fff;
+}
+th,td { 
+	text-align:left;
+	padding: 3px 5px;
+}
+.list {
+	border-collapse: collapse;
+}
+.list td, .list th {
+	border: 1px solid #99FBEA;
+}
+a {
+	color: #59FBEA;
+}
+a.info {
+	display:inline-block;
+	background:url(../img/info.png) no-repeat top left;
+	width:32px;
+	height:32px;
+}
+a.intel {
+	display:inline-block;
+	background:url(../img/map.png) no-repeat top left;
+	width:57px;
+	height:32px;
+}
+a:hover {
+	background-position:bottom left;
+	color: #99FBEA;
+}
+
+.owner-A {
+	color: #0f0;
+}
+.owner-R {
+	color: #0BF;
+}

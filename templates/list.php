@@ -3,7 +3,7 @@
 <option value="">show portals for one player</option>
 <?php
 $player = isset($_GET['player']) ? $_GET['player'] : FALSE;
-$playerlist = List::get_assignees();
+$playerlist = MyList::get_assignees();
 foreach ($playerlist->items as $myplayer) {
 	echo '<option value="'.$myplayer.'"'.($player == $myplayer ? ' selected' : '').'>'.$myplayer.'</option>';
 } 
@@ -19,9 +19,9 @@ foreach ($playerlist->items as $myplayer) {
 </tr>
 <?php
 if (empty($player)) {
-	$portallist = List::get_portals();
+	$portallist = MyList::get_portals();
 } else {
-	$portallist = List::get_portals_by_assignee($player);
+	$portallist = MyList::get_portals_by_assignee($player);
 }
 foreach ($portallist->items as $portal) {
 ?>

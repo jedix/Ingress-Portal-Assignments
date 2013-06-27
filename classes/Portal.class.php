@@ -1,14 +1,14 @@
 <?php
 class Portal {
-	public id = '';
-	public name = '';
-	public owner = '';
-	public owner_since = '';
-	public faction = '';
-	public lat = '';
-	public lng = '';
-	public discovered = '';
-	public updated = '';
+	public $id = '';
+	public $name = '';
+	public $owner = '';
+	public $owner_since = '';
+	public $faction = '';
+	public $lat = '';
+	public $lng = '';
+	public $discovered = '';
+	public $updated = '';
 
 	public function __construct($id, $lat, $lng, $name, $owner, $owner_since, $faction, $discovered='', $updated='') {
 		$this->id = $id;
@@ -20,6 +20,9 @@ class Portal {
 		$this->faction = $faction;
 		$this->discovered = $discovered;
 		$this->updated = $updated;
+	}
+
+	protected function load_assignees() {
 		$this->assigned_players = $this->get_assigned_players();
 	}
 
@@ -36,6 +39,9 @@ class Portal {
 			}
 			$stmt->close();
 		}
+		if ($portal) {
+			$portal->load_assignees();
+		}
 		return $portal;
 	}
 
@@ -51,6 +57,9 @@ class Portal {
 				$portal = new self($id, $lat, $lng, $name, $owner, $owner_since, $faction, $discovered, $updated);
 			}
 			$stmt->close();
+		}
+		if ($portal) {
+			$portal->load_assignees();
 		}
 		return $portal;
 	}
@@ -145,4 +154,5 @@ class Portal {
 		}
 		return $success;
 	}
+
 }

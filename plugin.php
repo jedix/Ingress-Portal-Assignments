@@ -25,7 +25,7 @@ if (!empty($portal_faction)) {
 
 if ($version != "$CURRENT_VERSION") {
 ?>
-$('#dus-resistance').append('<tr><td rowspan="2">You version of the DUS-RES plugin is outdated.<br /> Please <a href="<?php echo $MAIN_URL; ?>js/iitc-dus-resistance.user.js">update</a> to the newest version.</td></tr>');
+$('#dus-resistance').append('<tr><td rowspan="2">You version (<!php echo $version; ?>) of the DUS-RES plugin is outdated.<br /> Please <a href="<?php echo $MAIN_URL; ?>js/iitc-dus-resistance.user.js">update</a> to the newest version.</td></tr>');
 <?php
 	die();
 }
@@ -57,7 +57,7 @@ if ($portal) {
 	}
 
 	$nick_assigned = FALSE;
-	$url = $MAIN_URL."plugin.php?lat=$lat&lng=$lng&nick=$nick&action=";
+	$url = $MAIN_URL."plugin.php?v=$CURRENT_VERSION&lat=$lat&lng=$lng&nick=$nick&action=";
 	foreach ($portal->assigned_players as $assignee) {
 		$options = "";
 		if ($assignee->name == $nick) {

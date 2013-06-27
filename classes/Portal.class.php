@@ -129,7 +129,7 @@ class Portal {
 		$success = FALSE;
 		$sql = "INSERT INTO ingress_portal_watch (portal, player, since) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE since = ?";
 		if ($stmt = $mysqli->prepare($sql)) {
-			$stmt->bind_param('siss', date("Y-m-d H:i"), $id, $player, date("Y-m-d H:i"));
+			$stmt->bind_param('isss', $this->id, $player, date("Y-m-d H:i"), date("Y-m-d H:i"));
 			$stmt->execute();
 			if ($stmt->affected_rows == 1) {
 				$success = TRUE;
@@ -145,7 +145,7 @@ class Portal {
 		$success = FALSE;
 		$sql = "DELETE FROM ingress_portal_watch WHERE portal = ? AND player = ?";
 		if ($stmt = $mysqli->prepare($sql)) {
-			$stmt->bind_param('ii');
+			$stmt->bind_param('ii', $this->id, $player);
 			$stmt->execute();
 			if ($stmt->affected_rows == 1) {
 				$success = TRUE;

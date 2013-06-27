@@ -4,5 +4,8 @@ $dbuser = "";
 $dbpass = "";
 $dbname = "";
 
+$MAIN_URL = "http://www.example.com.de/ingress/";
+$CURRENT_VERSION = "0.0.5";
+
 $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname); 
 

@@ -2,7 +2,7 @@
 // @id             iitc-plugin-dus-res@jedix
 // @name           IITC plugin: DUS-Resistance
 // @category       Info
-// @version        0.0.4.20130626.143600
+// @version        0.0.5.20130627.103600
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @description    [jedix-2013-06-12-162306] List responsible user per portal.
 // @updateURL      http://dev.jdsrv.de/ingress/iitc-dus-resistance.meta.js
@@ -35,7 +35,7 @@ window.plugin.dusRes.addInfo = function(d) {
 }
 
 window.plugin.dusRes.getPlayers = function (d) {
-var url = "http://dev.jdsrv.de/ingress/plugin.php?lat=" + d.locationE6.latE6 + "&lng=" + d.locationE6.lngE6 + "&nick=" + PLAYER.nickname + "&portalname=" + encodeURIComponent(d.portalV2.descriptiveText.TITLE) + "&portalfaction=" + d.controllingTeam.team + "&portalowner=" + getPlayerName(d.captured.capturingPlayerId) + "&portalownersince=" + d.captured.capturedTime + "&v=0.0.4";
+var url = "http://dev.jdsrv.de/ingress/plugin.php?lat=" + d.locationE6.latE6 + "&lng=" + d.locationE6.lngE6 + "&nick=" + PLAYER.nickname + "&portalname=" + encodeURIComponent(d.portalV2.descriptiveText.TITLE) + "&portalfaction=" + d.controllingTeam.team + "&portalowner=" + getPlayerName(d.captured.capturingPlayerId) + "&portalownersince=" + d.captured.capturedTime + "&v=0.0.5";
 $('body').append('<script type="text/javascript" src="' + url + '"></script>');
 }
 

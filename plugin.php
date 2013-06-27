@@ -1,4 +1,6 @@
 <?php
+include "config.inc.php";
+include "classes/Portal.class.php";
 $version = isset($_GET['v']) ? $_GET['v'] : '';
 $portal_name = isset($_GET['portalname']) ? $_GET['portalname'] : '';
 $portal_owner = isset($_GET['portalowner']) ? $_GET['portalowner'] : '';
@@ -21,15 +23,13 @@ if (!empty($portal_faction)) {
 	$portal_faction = substr($portal_faction, 0, 1);
 }
 
-if ($version != "0.0.4") {
+if ($version != "$CURRENT_VERSION") {
 ?>
-$('#dus-resistance').append('<tr><td rowspan="2">You version of the DUS-RES plugin is outdated.<br /> Please <a href="http://dev.jdsrv.de/ingress/iitc-dus-resistance.user.js">update</a> to the newest version.</td></tr>');
+$('#dus-resistance').append('<tr><td rowspan="2">You version of the DUS-RES plugin is outdated.<br /> Please <a href="<?php echo $MAIN_URL; ?>js/iitc-dus-resistance.user.js">update</a> to the newest version.</td></tr>');
 <?php
 	die();
 }
 
-include "config.inc.php";
-include "classes/Portal.class.php";
 
 
 $EAST = 6685066;
@@ -64,7 +64,7 @@ if ($portal) {
 	}
 
 	$nick_assigned = FALSE;
-	$url = "http://dev.jdsrv.de/ingress/plugin.php?lat=$lat&lng=$lng&nick=$nick&action=";
+	$url = $MAIN_URL."plugin.php?lat=$lat&lng=$lng&nick=$nick&action=";
 	foreach ($portal->assigned_players as $assignee) {
 		$options = "";
 		if ($assignee->name == $nick) {
